@@ -33,10 +33,10 @@ public class Robot extends TimedRobot {
 //  private XboxController xbox = new XboxController(2);
 
   //create and instantiate 4 motor controllers
-  private WPI_TalonSRX frontLeftMotor = new WPI_TalonSRX(0);
-  private WPI_TalonSRX rearLeftMotor = new WPI_TalonSRX(1);
-  private WPI_TalonSRX frontRightMotor = new WPI_TalonSRX(3);
-  private WPI_TalonSRX rearRightMotor = new WPI_TalonSRX(2);
+  private  CANSparkMax  frontLeftMotor = new CANSparkMax(0, MotorType.kbrushless);
+   private CANSparkMax  rearLeftMotor = new CANSparkMax(1, MotorType.kbrushless);
+   private CANSparkMax  frontRightMotor = new CANSparkMax(3, MotorType.kbrushless);
+   private CANSparkMax  rearRightMotor = new CANSparkMax(2, MotorType.kbrushless);
 
   //Neo Encoder is connected to this motorController CANSparkMax called test
   //Because it doesn't connect to any wheel (due to technical difficulty),
