@@ -56,7 +56,7 @@ public class Robot extends TimedRobot {
   private double driveInput=0;
   private double strafeInput =0;
   private double steerInput = 0;
-  private boolean isTankDrive = true;    //if true: joysticks operated in tankDrive mode, false: mecanumDrive mode
+  private boolean isTankDrive = false;    //if true: joysticks operated in tankDrive mode, false: mecanumDrive mode
   private boolean debug = true;
 
   private static final String kDefaultJoystickStyle = "TANK_DRIVE";
