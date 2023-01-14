@@ -5,6 +5,8 @@
 package frc.robot.subsystems;
 
 import com.kauailabs.navx.frc.AHRS;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.SPI;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
@@ -23,6 +25,14 @@ public class DriveSubsystem extends SubsystemBase {
 
   // nav2x gyro
   private final AHRS nav2x = new AHRS(SPI.Port.kMXP);
+  // solenoids aka (SparkMaxes of pneumatics)
+  private final DoubleSolenoid exampleDoublePCM = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 1, 2);
+  private final DoubleSolenoid exampleDoublePH = new DoubleSolenoid(9, PneumaticsModuleType.REVPH, 4, 5);
+
+// not sure what these are
+//exampleDoublePCM.set(kOff);
+//exampleDoublePCM.set(kForward);
+//exampleDoublePCM.set(kReverse);
 
   
 
