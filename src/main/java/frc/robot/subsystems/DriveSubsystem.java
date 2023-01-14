@@ -4,6 +4,8 @@
 
 package frc.robot.subsystems;
 
+import com.kauailabs.navx.frc.AHRS;
+import edu.wpi.first.wpilibj.SPI;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
@@ -18,6 +20,10 @@ public class DriveSubsystem extends SubsystemBase {
   private final CANSparkMax rearLeftMotor = new CANSparkMax   (Constants.DriveConstants.krearLeftMotorDeviceID, MotorType.kBrushless);
   private final CANSparkMax frontRightMotor = new CANSparkMax (Constants.DriveConstants.kfrontRightMotorDeviceID, MotorType.kBrushless);
   private final CANSparkMax rearRightMotor = new CANSparkMax  (Constants.DriveConstants.krearRightMotorDeviceID, MotorType.kBrushless);
+
+  private final AHRS nav2x = new AHRS(SPI.Port.kMXP);
+
+  
 
   // motor encoders * guide only intanciated front left and front right*
   private final RelativeEncoder frontLeftEncoder =  frontLeftMotor.getEncoder();
