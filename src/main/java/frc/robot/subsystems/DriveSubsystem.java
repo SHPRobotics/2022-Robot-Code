@@ -21,6 +21,7 @@ public class DriveSubsystem extends SubsystemBase {
   private final CANSparkMax frontRightMotor = new CANSparkMax (Constants.DriveConstants.kfrontRightMotorDeviceID, MotorType.kBrushless);
   private final CANSparkMax rearRightMotor = new CANSparkMax  (Constants.DriveConstants.krearRightMotorDeviceID, MotorType.kBrushless);
 
+  // nav2x gyro
   private final AHRS nav2x = new AHRS(SPI.Port.kMXP);
 
   
