@@ -27,7 +27,7 @@ public class DriveSubsystem extends SubsystemBase {
   private final AHRS nav2x = new AHRS(SPI.Port.kMXP);
   // solenoids aka (SparkMaxes of pneumatics)
   private final DoubleSolenoid exampleDoublePCM = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 1, 2);
-  private final DoubleSolenoid exampleDoublePH = new DoubleSolenoid(9, PneumaticsModuleType.REVPH, 4, 5);
+ 
 
 // not sure what these are
 //exampleDoublePCM.set(kOff);
@@ -70,6 +70,15 @@ public class DriveSubsystem extends SubsystemBase {
   }
 
   public void setMotors(double frontLeftSpeed, double rearLeftSpeed, double frontRightSpeed, double rearRightSpeed){
+    // apply deadBand
+    //if(Math.abs(leftSpeed) <= Constants.OperatorConstants.kDeadband) leftSpeed =0.0;
+    //if(Math.abs(rightSpeed) <= Constants.OperatorConstants.kDeadband) rightSpeed =0.0;
+    applyDeadband(frontLeftSpeed, Constants.OperatorConstants.kDeadband);
+    applyDeadband(rearLeftSpeed, Constants.OperatorConstants.kDeadband);
+    applyDeadband(frontRightSpeed, Constants.OperatorConstants.kDeadband);
+    applyDeadband(rearRightSpeed, Constants.OperatorConstants.kDeadband);
+
+    //apply power to motors
     frontLeftMotor.set(frontLeftSpeed);
     rearLeftMotor.set(rearLeftSpeed);
     frontRightMotor.set(frontRightSpeed);
