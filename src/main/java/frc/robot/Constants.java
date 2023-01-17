@@ -20,7 +20,7 @@ public final class Constants {
 
     //when joystickOutput is too low (-kDeadband <= joystickOutput <= kDeadband) 
     //to move the robot, set joystickOutput to 0 to avoid burning the motor
-    public static final double kDeadband = 0.4;
+    public static final double kDeadband = 0.95;
 
 
   }
